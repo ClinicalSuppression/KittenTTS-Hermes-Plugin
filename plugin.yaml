@@ -1,0 +1,42 @@
+name: kittentts-service
+version: 0.1.0
+description: "Production-grade KittenTTS local CPU service plugin for Hermes Agent and Hermes Desktop"
+author: "ClinicalSuppression"
+license: "MIT"
+repository: "https://github.com/ClinicalSuppression/KittenTTS-Hermes-Plugin"
+
+settings:
+  base_url:
+    type: string
+    default: "http://127.0.0.1:8100"
+    description: "URL of the local KittenTTS background HTTP service"
+  model:
+    type: select
+    default: "KittenML/kitten-tts-mini-0.8"
+    description: "KittenTTS ONNX model (mini-0.8 80MB, micro-0.8 41MB, nano-0.8 56MB)"
+    options:
+      - "KittenML/kitten-tts-mini-0.8"
+      - "KittenML/kitten-tts-micro-0.8"
+      - "KittenML/kitten-tts-nano-0.8"
+      - "KittenML/kitten-tts-nano-0.8-int8"
+  voice:
+    type: select
+    default: "Kiki"
+    description: "Active voice for speech synthesis"
+    options:
+      - "Kiki"
+      - "Bella"
+      - "Rosie"
+      - "Luna"
+      - "Jasper"
+      - "Bruno"
+      - "Hugo"
+      - "Leo"
+  speed:
+    type: number
+    default: 1.0
+    description: "Speech speed multiplier (0.5 to 2.0)"
+  timeout_seconds:
+    type: number
+    default: 30
+    description: "HTTP request timeout in seconds"
