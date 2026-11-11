@@ -1,5 +1,5 @@
 name: kittentts-service
-version: 0.1.0
+version: 0.1.1
 description: "Production-grade KittenTTS local CPU service plugin for Hermes Agent and Hermes Desktop"
 author: "ClinicalSuppression"
 license: "MIT"

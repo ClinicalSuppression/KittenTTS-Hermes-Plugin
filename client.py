@@ -88,9 +88,11 @@ class KittenTTSClient:
     ) -> str:
         """Synthesize text into output_path using the background HTTP service."""
         url = f"{self.base_url}/v1/audio/speech"
+        if not voice:
+            raise ValueError("KittenTTS client requires an explicit resolved voice")
         payload = {
             "input": text,
-            "voice": voice or "Kiki",
+            "voice": voice,
             "model": model or "KittenML/kitten-tts-mini-0.8",
             "speed": float(speed) if speed is not None else 1.0,
             "response_format": response_format or "wav",
@@ -101,7 +103,7 @@ class KittenTTSClient:
             data=json.dumps(payload).encode("utf-8"),
             headers={
                 "Content-Type": "application/json",
-                "User-Agent": "Hermes-KittenTTS-Plugin/0.1.0",
+                "User-Agent": "Hermes-KittenTTS-Plugin/0.1.1",
             },
         )
 
